@@ -1,0 +1,10 @@
+#!/bin/sh
+if mountpoint -q /target; then
+	echo "Installing cbfs to /target"
+	cp /cbfs /target
+else
+	echo "/target is not a mountpoint."
+	echo "You can either:"
+	echo "- re-run this container with -v /usr/local/bin:/target"
+	echo "- extract the cbfs binary (located at /cbfs)"
+fi
